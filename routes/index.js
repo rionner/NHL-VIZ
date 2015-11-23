@@ -3,11 +3,13 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Original Six v2.0' });
+  res.send('index', {
+    title: 'Original Six v2.0'
+  });
 });
 
 router.get('/blackhawks', function(req, res, next) {
-  res.render('blackhawks', {
+  res.send('blackhawks', {
     title: 'Blackhawks',
     city: 'CHI',
     team: 'blackhawks',
@@ -18,7 +20,7 @@ router.get('/blackhawks', function(req, res, next) {
 });
 
 router.get('/bruins', function(req, res, next) {
-  res.render('bruins', {
+  res.send('bruins', {
     title: 'Bruins',
     city: 'BOS',
     team: 'bruins',
@@ -29,7 +31,7 @@ router.get('/bruins', function(req, res, next) {
 });
 
 router.get('/canadiens', function(req, res, next) {
-  res.render('canadiens', {
+  res.send('canadiens', {
     title: 'Canadiens',
     city: 'MTL',
     team: 'canadiens',
@@ -40,7 +42,7 @@ router.get('/canadiens', function(req, res, next) {
 });
 
 router.get('/mapleleafs', function(req, res, next) {
-  res.render('mapleleafs', {
+  res.send('mapleleafs', {
     title: 'Maple Leafs',
     city: 'TOR',
     team: 'mapleleafs',
@@ -51,7 +53,7 @@ router.get('/mapleleafs', function(req, res, next) {
 });
 
 router.get('/rangers', function(req, res, next) {
-  res.render('rangers', {
+  res.send('rangers', {
     title: 'Rangers',
     city: 'NYC',
     team: 'rangers',
@@ -62,7 +64,7 @@ router.get('/rangers', function(req, res, next) {
 });
 
 router.get('/redwings', function(req, res, next) {
-  res.render('redwings', {
+  res.send('redwings', {
     title: 'Red Wings',
     city: 'DET',
     team: 'redwings',
