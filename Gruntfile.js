@@ -50,9 +50,6 @@ module.exports = function (grunt) {
       less: 'public/**/*.css'
     }
   });
-  // grunt.loadNpmTasks('grunt-contrib-jshint'); now included in require statement
-  // grunt.loadNpmTasks('grunt-contrib-less'); now included in require statement
-  // grunt.loadNpmTasks('grunt-contrib-clean'); now included in require statement
   grunt.registerTask('default', ['jshint']);
   grunt.registerTask('js', 'Concatenate and minify static JavaScript assets', ['concat:js', 'uglify:bundle']);
 
