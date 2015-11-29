@@ -8,14 +8,19 @@ module.exports = function (grunt) {
             'public/javascripts/**/*.js',
             '!public/javascripts/vendor'
           ],
+        server: ['server/**/*.js'],
         jshintrc: true,
-        reporter: require('jshint-stylish'),
         verbose: true
       },
-      frontend: ['Gruntfile.js']
+      support: ['Gruntfile.js']
     },
     less: {
-      compile: {
+      debug: {
+        files: { // compile all less into individual files for testing & debugging
+          'build/stylesheets/style.css': 'public/stylesheets/style.less'
+        }
+      },
+      release: { // compile all less into a single css document for release
         files: {
           'build/stylesheets/compiled.css': 'public/stylesheets/**/*.less'
         }
@@ -44,14 +49,15 @@ module.exports = function (grunt) {
           destCSS: 'build/css/icons.css'
       }
     },
-    clean {
+    clean: {
       js: 'build/javascripts',
       css: 'build/css',
       less: 'public/**/*.css'
     }
   });
-  grunt.registerTask('default', ['jshint']);
+  grunt.registerTask('default', ['jshint', 'less:debug']);
   grunt.registerTask('js', 'Concatenate and minify static JavaScript assets', ['concat:js', 'uglify:bundle']);
-
+  grunt.registerTask('build:debug', ['jshint', 'less:debug']);
+  grunt.registerTask('build:release', ['jshint', 'less:release', 'concat:js', 'uglify:bundle']);
 };
 
