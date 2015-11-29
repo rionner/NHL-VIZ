@@ -34,4 +34,5 @@ npm-debug.log
 
 default.json
 
-env/private/*
+# Local decrypted environmental variables
+env/private
