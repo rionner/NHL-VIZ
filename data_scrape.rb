@@ -9,7 +9,7 @@ global_data = (1997..2014).map do |year|
   year2 = year.to_i + 1
 
   # maple leafs
-  # url = "http://mapleleafs.nhl.com/club/gamelog.htm?season=#{year1}#{year2}&gameType=3"
+  url = "http://mapleleafs.nhl.com/club/gamelog.htm?season=#{year1}#{year2}&gameType=3"
 
   # rangers
   # url = "http://rangers.nhl.com/club/gamelog.htm?season=#{year1}#{year2}&gameType=3"
@@ -29,7 +29,23 @@ global_data = (1997..2014).map do |year|
 
   doc = Nokogiri::HTML(open(url))
 
-  season = { year: "#{year1}-#{year2}", games_played: 0, home_games: 0, road_games: 0, wins: 0, losses: 0, overtime: 0, shootout: 0, team_goals: 0, avg_goals_for: 0, opponent_goals: 0, avg_goals_against: 0, total_attendance: 0, home_attendance: 0 }
+  season = {
+    year1: "#{year1}",
+    year2: "#{year2}",
+    games_played: 0,
+    home_games: 0,
+    road_games: 0,
+    wins: 0,
+    losses: 0,
+    overtime: 0,
+    shootout: 0,
+    team_goals: 0,
+    avg_goals_for: 0,
+    opponent_goals: 0,
+    avg_goals_against: 0,
+    total_attendance: 0,
+    home_attendance: 0
+  }
 
   doc.css('.data').map do |item|
 

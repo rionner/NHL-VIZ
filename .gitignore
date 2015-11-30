@@ -39,3 +39,8 @@ default.json
 
 # Local decrypted environmental variables
 env/private
+
+# Raw data
+data.json
+regular_seasons.json
+playoff_seasons.json
