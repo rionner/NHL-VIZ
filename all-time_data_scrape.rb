@@ -9,10 +9,10 @@ global_data = (1997..2015).map do |year|
   year2 = year.to_i + 1
 
   # all teams regular season
-  url = "http://blackhawks.nhl.com/club/teamstatscomparison.htm?season=#{year1}#{year2}&gameType=2"
+  # url = "http://blackhawks.nhl.com/club/teamstatscomparison.htm?season=#{year1}#{year2}&gameType=2"
 
   # all teams playoffs
-  # url = 'http://blackhawks.nhl.com/club/teamstatscomparison.htm?season=#{year1}#{year2}&gameType=3'
+  url = "http://blackhawks.nhl.com/club/teamstatscomparison.htm?season=#{year1}#{year2}&gameType=3"
 
   puts url
 
@@ -29,7 +29,7 @@ global_data = (1997..2015).map do |year|
         years: "#{year1}-#{year2}",
         year1: "#{year1}",
         year2: "#{year2}",
-        regular_season: true,
+        regular_season: false,
         games_played: 0,
         wins: 0,
         losses: 0,
