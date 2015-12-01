@@ -11,7 +11,7 @@ module.exports = function (grunt) {
     },
     nodemon: {
       dev: {
-        script: 'app.js',
+        script: './bin/www',
         options: {
           nodeArgs: ['--debug'],
           env: {
