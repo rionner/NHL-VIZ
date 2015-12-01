@@ -1,4 +1,4 @@
-var mongoos = require('mongoose');
+var mongoose = require('mongoose');
 var connectionString = 'mongodb://localhost/nhl_viz';
 
 mongoose.connect(connectionString);

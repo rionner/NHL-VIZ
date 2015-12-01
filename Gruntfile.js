@@ -1,7 +1,36 @@
 module.exports = function (grunt) {
-  require('load-grunt-tasks')(grunt, {pattern: 'grunt-contrib-*'});
-
+  require('load-grunt-tasks')(grunt);
   grunt.initConfig({
+    concurrent: {
+      dev: {
+        tasks: ['nodemon', 'node-inspector', 'watch'],
+        options: {
+          logConcurrentOutput: true
+        }
+      }
+    },
+    nodemon: {
+      dev: {
+        script: 'app.js',
+        options: {
+          nodeArgs: ['--debug'],
+          env: {
+            PORT: '5000'
+          },
+        }
+      }
+    },
+    'node-inspector': {
+      dev: {}
+    },
+    watch: {
+      server: {
+        files: ['.rebooted'],
+        options: {
+          livereload: true
+        }
+      }
+    },
     jshint: {
       options: {
         client: [
@@ -55,7 +84,7 @@ module.exports = function (grunt) {
       less: 'public/**/*.css'
     }
   });
-  grunt.registerTask('default', ['jshint', 'less:debug']);
+  grunt.registerTask('default', ['jshint', 'less:debug', 'concurrent']);
   grunt.registerTask('js', 'Concatenate and minify static JavaScript assets', ['concat:js', 'uglify:bundle']);
   grunt.registerTask('build:debug', ['jshint', 'less:debug']);
   grunt.registerTask('build:release', ['jshint', 'less:release', 'concat:js', 'uglify:bundle']);

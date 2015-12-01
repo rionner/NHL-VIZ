@@ -3,13 +3,14 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.send('index', {
-    title: 'Original Six v2.0'
+  res.render('index', {
+    title: 'NHL Visualizations',
+    layout: 'layout'
   });
 });
 
 router.get('/blackhawks', function(req, res, next) {
-  res.send('blackhawks', {
+  res.status('ok').send('blackhawks', {
     title: 'Blackhawks',
     city: 'CHI',
     team: 'blackhawks',
@@ -17,10 +18,11 @@ router.get('/blackhawks', function(req, res, next) {
     secondaryColor: '#000',
     tertiaryColor: '#FFF'
   });
+  res.render('team');
 });
 
 router.get('/bruins', function(req, res, next) {
-  res.send('bruins', {
+  res.status('ok').send('bruins', {
     title: 'Bruins',
     city: 'BOS',
     team: 'bruins',
@@ -31,7 +33,7 @@ router.get('/bruins', function(req, res, next) {
 });
 
 router.get('/canadiens', function(req, res, next) {
-  res.send('canadiens', {
+  res.status('ok').send('canadiens', {
     title: 'Canadiens',
     city: 'MTL',
     team: 'canadiens',
@@ -42,7 +44,7 @@ router.get('/canadiens', function(req, res, next) {
 });
 
 router.get('/mapleleafs', function(req, res, next) {
-  res.send('mapleleafs', {
+  res.status('ok').send('mapleleafs', {
     title: 'Maple Leafs',
     city: 'TOR',
     team: 'mapleleafs',
@@ -53,7 +55,7 @@ router.get('/mapleleafs', function(req, res, next) {
 });
 
 router.get('/rangers', function(req, res, next) {
-  res.send('rangers', {
+  res.status('ok').send('rangers', {
     title: 'Rangers',
     city: 'NYC',
     team: 'rangers',
@@ -64,7 +66,7 @@ router.get('/rangers', function(req, res, next) {
 });
 
 router.get('/redwings', function(req, res, next) {
-  res.send('redwings', {
+  res.status('ok').send('redwings', {
     title: 'Red Wings',
     city: 'DET',
     team: 'redwings',

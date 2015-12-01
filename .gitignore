@@ -24,6 +24,7 @@ build/Release
 
 # Compiled CSS
 build/stylesheets
+public/stylesheets/*.css
 
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
@@ -41,6 +42,4 @@ default.json
 env/private
 
 # Raw data
-data.json
-regular_seasons.json
-playoff_seasons.json
+data_files

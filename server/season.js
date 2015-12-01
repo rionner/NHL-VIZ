@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var SeasonSchema = new.mongoose.Schema({
   "team": String,
+  "city": String,
   "years": String,
   "year1": Number,
   "year2": Number,
