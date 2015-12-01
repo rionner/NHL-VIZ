@@ -1,6 +1,9 @@
 var mongoose = require('mongoose');
 var db = require( './server/models/database' );
 
+// var db = require('./server/models/import');
+var teams = require('./server/models/Team');
+
 var express = require('express');
 var path = require('path');
 // var favicon = require('serve-favicon');

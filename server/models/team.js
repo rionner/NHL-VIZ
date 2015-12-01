@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
-var TeamSchema = new.mongoose.Schema({
+var TeamSchema = new mongoose.Schema({
   "team": String,
+  "city": String,
   "years": String,
   "year1": Number,
   "year2": Number,
@@ -25,4 +26,4 @@ var TeamSchema = new.mongoose.Schema({
   "times_shut_out":Number
 });
 
-module.exports = mongoose.Model('TeamSchema', TeamSchema);
+module.exports = mongoose.model('TeamSchema', TeamSchema);
