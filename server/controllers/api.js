@@ -73,17 +73,6 @@ router.get('/:team/:year/:regular_season', function(req, res, next) {
 });
 
 
-
-// Get by year
-// router.get('/:year', function(req, res, next) {
-//   // Send specified year data
-//   year = req.year;
-//   var findYears = Team.find().where('year1', year).exec(function(err, year) {
-//     res.send(year);
-//   });
-// });
-
-
 // Update Specific Team Data
 
 // Delete Specific Team Data
@@ -95,16 +84,17 @@ module.exports = router;
 
 // ===== ===== ===== ===== ======
 
+// Get by year
+// router.get('/:year', function(req, res, next) {
+//   // Send specified year data
+//   year = req.year;
+//   var findYears = Team.find().where('year1', year).exec(function(err, year) {
+//     res.send(year);
+//   });
+// });
 
 
 // router.get('/:playoffs', function(req, res, next) {
 //   // Send specified playoff data
 // });
 
-// router.get('/:team/:year', function(req, res, next) {
-//   // Send specified team data for the specified year
-// });
-
-// router.get('/:team/:year/:playoffs', function(req, res, next) {
-//   // Send specified team data for the specified year during playoffs
-// });
