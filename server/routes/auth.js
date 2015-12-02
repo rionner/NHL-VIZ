@@ -21,3 +21,7 @@ app.route('/logout')
   .post(function(req, res, next) {
 
   });
+
+app.use('/', router);
+
+module.exports = router;
