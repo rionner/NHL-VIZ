@@ -1,0 +1,71 @@
+// COLOR VARIABLES
+@black: #000;
+@white: #FFF;
+
+@blackhawks-1: #E3263A;
+@blackhawks-2: @black;
+@blackhawks-3: @black;
+
+@bruins-1: @black;
+@bruins-2: #FFC422;
+@bruins-3: @white;
+
+@canadiens-1: #BF2F38;
+@canadiens-2: #213770;
+@canadiens-3: @white;
+
+@maple-leafs-1: #003777;
+@maple-leafs-2: @white;
+@maple-leafs-3: #002249;
+
+@rangers-1: #0161AB;
+@rangers-2: #E6393F;
+@rangers-3: @white;
+
+@red-wings-1: #EC1F26;
+@red-wings-2: @white;
+@red-wings-3: #B11200;
+
+
+// MIXINS
+.Border() {
+	border-radius: 20px;
+}
+
+
+// LESS STYLES
+.original-six {
+	width: 80%;
+	a {
+		text-decoration: none;
+		.team {
+			width: 300px;
+			height: 200px;
+			.Border;
+		}
+		.blackhawks {
+			color: @blackhawks-2;
+			background-color: @blackhawks-1;
+		}
+		.bruins {
+			color: @bruins-2;
+			background-color: @bruins-1;
+		}
+		.canadiens {
+			color: @canadiens-2;
+			background-color: @canadiens-1;
+		}
+		.maple-leafs {
+			color: @maple-leafs-2;
+			background-color: @maple-leafs-1;
+		}
+		.rangers {
+			color: @rangers-2;
+			background-color: @rangers-1;
+		}
+		.red-wings {
+			color: @red-wings-2;
+			background-color: @red-wings-1;
+		}
+	}
+}

@@ -3,7 +3,7 @@ module.exports = function (grunt) {
   grunt.initConfig({
     concurrent: {
       dev: {
-        tasks: ['nodemon', 'node-inspector', 'watch'],
+        tasks: ['jshint', 'less', 'nodemon', 'node-inspector', 'watch'],
         options: {
           logConcurrentOutput: true
         }
@@ -24,6 +24,20 @@ module.exports = function (grunt) {
       dev: {}
     },
     watch: {
+      scripts: {
+        files: '**/*.js',
+        tasks: ['jshint'],
+        options: {
+          livereload: true
+        }
+      },
+      css: {
+        files: 'public/stylesheets/less/*.less',
+        tasks: ['less'],
+        options: {
+          livereload: true,
+        }
+      },
       server: {
         files: ['.rebooted'],
         options: {
@@ -46,12 +60,20 @@ module.exports = function (grunt) {
     less: {
       debug: {
         files: { // compile all less into individual files for testing & debugging
-          'build/stylesheets/style.css': 'public/stylesheets/style.less'
+          'build/stylesheets/style.css': 'public/stylesheets/less/style.less',
+          'build/stylesheets/original-six.css' : 'public/stylesheets/less/original-six.less'
         }
+      },
+      development: {
+        files:
+          {
+            'public/stylesheets/style.css' : 'public/stylesheets/less/style.less',
+            'public/stylesheets/original-six.css' : 'public/stylesheets/less/original-six.less',
+          }
       },
       release: { // compile all less into a single css document for release
         files: {
-          'build/stylesheets/compiled.css': 'public/stylesheets/**/*.less'
+          'build/stylesheets/compiled.css': 'public/stylesheets/**/*.less',
         }
       }
     },
@@ -84,7 +106,7 @@ module.exports = function (grunt) {
       less: 'public/**/*.css'
     }
   });
-  grunt.registerTask('default', ['jshint', 'less:debug', 'concurrent']);
+  grunt.registerTask('default', 'concurrent');
   grunt.registerTask('js', 'Concatenate and minify static JavaScript assets', ['concat:js', 'uglify:bundle']);
   grunt.registerTask('build:debug', ['jshint', 'less:debug']);
   grunt.registerTask('build:release', ['jshint', 'less:release', 'concat:js', 'uglify:bundle']);
