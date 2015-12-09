@@ -2,7 +2,6 @@ var mongoose = require('mongoose');
 var db = require( './server/models/database' );
 // var db = require('./server/models/import');
 var teams = require('./server/models/Team');
-
 var express = require('express');
 var path = require('path');
 // var favicon = require('serve-favicon');
@@ -10,19 +9,16 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
-var hbs = require('hbs');
-
 var routes = require('./server/routes');
-// var users = require('./server/routes/users');
+
 
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, '/views'));
-app.set('view options', { layout: false });
-app.set('view engine', 'hbs');
+app.set('views', path.join(__dirname, '/server/views'));
+// app.set('view options', { layout: false });
+app.set('view engine', 'ejs');
 
-hbs.registerPartials(__dirname + '/views/partials');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
