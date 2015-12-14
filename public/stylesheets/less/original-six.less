@@ -1,71 +1,79 @@
-// COLOR VARIABLES
-@black: #000;
-@white: #FFF;
-
-@blackhawks-1: #E3263A;
-@blackhawks-2: @black;
-@blackhawks-3: @black;
-
-@bruins-1: @black;
-@bruins-2: #FFC422;
-@bruins-3: @white;
-
-@canadiens-1: #BF2F38;
-@canadiens-2: #213770;
-@canadiens-3: @white;
-
-@maple-leafs-1: #003777;
-@maple-leafs-2: @white;
-@maple-leafs-3: #002249;
-
-@rangers-1: #0161AB;
-@rangers-2: #E6393F;
-@rangers-3: @white;
-
-@red-wings-1: #EC1F26;
-@red-wings-2: @white;
-@red-wings-3: #B11200;
-
-
-// MIXINS
-.Border() {
-	border-radius: 20px;
-}
-
+// IMPORT VARIABLES FILE
+@import "variables";
+@import "mixins";
 
 // LESS STYLES
 .original-six {
 	width: 80%;
+	margin: 0 auto;
+	display: flex;
+	flex-flow: row wrap;
 	a {
 		text-decoration: none;
 		.team {
-			width: 300px;
-			height: 200px;
+			width: 200px;
+			height: 100px;
+			margin: 5px;
+			text-align: center;
 			.Border;
 		}
-		.blackhawks {
-			color: @blackhawks-2;
-			background-color: @blackhawks-1;
+		h1 {
+			.Title;
+			line-height: 100px;
 		}
-		.bruins {
-			color: @bruins-2;
-			background-color: @bruins-1;
+		.chi {
+			color: @chi-2;
+			background-color: @chi-1;
 		}
-		.canadiens {
-			color: @canadiens-2;
-			background-color: @canadiens-1;
+		.chi:hover {
+			color: @chi-1;
+			background-color: @chi-2;
+			.BackgroundTransition;
 		}
-		.maple-leafs {
-			color: @maple-leafs-2;
-			background-color: @maple-leafs-1;
+		.bos {
+			color: @bos-2;
+			background-color: @bos-1;
 		}
-		.rangers {
-			color: @rangers-2;
-			background-color: @rangers-1;
+		.bos:hover {
+			color: @bos-1;
+			background-color: @bos-2;
+			.BackgroundTransition;
 		}
-		.red-wings {
-			color: @red-wings-2;
-			background-color: @red-wings-1;
+		.mtl {
+			color: @mtl-2;
+			background-color: @mtl-1;
+		}
+		.mtl:hover {
+			color: @mtl-1;
+			background-color: @mtl-2;
+			.BackgroundTransition;
+		}
+		.tor {
+			color: @tor-2;
+			background-color: @tor-1;
+		}
+		.tor:hover {
+			color: @tor-1;
+			background-color: @tor-2;
+			.BackgroundTransition;
+		}
+		.nyr {
+			color: @nyr-2;
+			background-color: @nyr-1;
+		}
+		.nyr:hover {
+			color: @nyr-1;
+			background-color: @nyr-2;
+			.BackgroundTransition;
+		}
+		.det {
+			color: @det-2;
+			background-color: @det-1;
+		}
+		.det:hover {
+			color: @det-1;
+			background-color: @det-2;
+			.BackgroundTransition;
 		}
 	}
 }

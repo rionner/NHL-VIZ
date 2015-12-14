@@ -1,8 +1,25 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+// IMPORT VARIABLES FILE
+@import "variables";
+@import "mixins";
 
-a {
-  color: #00B7FF;
+.all-teams {
+	width: 80%;
+	margin: 0 auto;
+	display: flex;
+	flex-flow: row wrap;
+	.title {
+		width: 100%;
+	}
+	.team {
+		width: 150px;
+		height: 100px;
+		margin: 5px;
+		text-align: center;
+		color: @white;
+		background-color: @black;
+		.Border;
+		h2 {
+			line-height: 100px;
+		}
+	}
 }

@@ -50,7 +50,7 @@ router.get('/canadiens', function(req, res, next) {
 router.get('/mapleleafs', function(req, res, next) {
   var data = {
     title: 'Toronto Maple Leafs',
-    team: 'maple leafs',
+    team: 'Maple Leafs',
     city: 'TOR',
     cssClass: 'maple-leafs',
     primaryColor: '#003777',
@@ -76,7 +76,7 @@ router.get('/rangers', function(req, res, next) {
 router.get('/redwings', function(req, res, next) {
   var data = {
     title: 'Detroit Red Wings',
-    team: 'red wings',
+    team: 'Red Wings',
     city: 'DET',
     cssClass: 'red-wings',
     primaryColor: '#EC1F26',
