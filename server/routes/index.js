@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/:team', function(req, res, next) {
   var data = {
-    title: req.params.team.toUpperCase();,
+    title: req.params.team.toUpperCase(),
     team: req.params.team
   };
   res.render('team', data);
