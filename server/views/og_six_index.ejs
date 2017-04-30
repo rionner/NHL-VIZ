@@ -4,49 +4,42 @@
     <title><%= title %></title>
     <%- include ./partials/og_head %>
   </head>
-  <body>
-
-    <h1><%= title %></h1>
-
-    <article class="original-six">
-
-      <a href="/original-six/blackhawks">
-        <section class="team chi">
-          <h1>Blackhawks</h1>
-        </section>
-      </a>
-
-      <a href="/original-six/bruins">
-        <section class="team bos">
-          <h1>Bruins</h1>
-        </section>
-      </a>
-
-      <a href="/original-six/canadiens">
-        <section class="team mtl">
-          <h1>Canadiens</h1>
-        </section>
-      </a>
-
-      <a href="/original-six/mapleleafs">
-        <section class="team tor">
-          <h1>Maple Leafs</h1>
-        </section>
-      </a>
-
-      <a href="/original-six/rangers">
-        <section class="team nyr">
-          <h1>Rangers</h1>
-        </section>
-      </a>
-
-      <a href="/original-six/redwings">
-        <section class="team det">
-          <h1>Red Wings</h1>
-        </section>
-      </a>
-
-    </article>
-
+  <body class="layout-page-wrap">
+    <main class="layout-content-wrap">
+      <h1><%= title %></h1>
+      <article class="original-six">
+        <a href="/original-six/blackhawks">
+          <section class="team chi">
+            <h1>Blackhawks</h1>
+          </section>
+        </a>
+        <a href="/original-six/bruins">
+          <section class="team bos">
+            <h1>Bruins</h1>
+          </section>
+        </a>
+        <a href="/original-six/canadiens">
+          <section class="team mtl">
+            <h1>Canadiens</h1>
+          </section>
+        </a>
+        <a href="/original-six/mapleleafs">
+          <section class="team tor">
+            <h1>Maple Leafs</h1>
+          </section>
+        </a>
+        <a href="/original-six/rangers">
+          <section class="team nyr">
+            <h1>Rangers</h1>
+          </section>
+        </a>
+        <a href="/original-six/redwings">
+          <section class="team det">
+            <h1>Red Wings</h1>
+          </section>
+        </a>
+      </article>
+    </main>
+    <%- include ./partials/footer %>
   </body>
 </html>

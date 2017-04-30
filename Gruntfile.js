@@ -60,15 +60,15 @@ module.exports = function (grunt) {
     less: {
       debug: {
         files: { // compile all less into individual files for testing & debugging
-          'build/stylesheets/style.css': 'public/stylesheets/less/style.less',
-          'build/stylesheets/original-six.css' : 'public/stylesheets/less/original-six.less'
+          'build/stylesheets/main.css': 'public/stylesheets/less/main.less'//,
+          // 'build/stylesheets/original-six.css' : 'public/stylesheets/less/original-six.less'
         }
       },
       development: {
         files:
           {
-            'public/stylesheets/style.css' : 'public/stylesheets/less/style.less',
-            'public/stylesheets/original-six.css' : 'public/stylesheets/less/original-six.less',
+            'public/stylesheets/main.css' : 'public/stylesheets/less/main.less'//,
+            // 'public/stylesheets/original-six.css' : 'public/stylesheets/less/original-six.less',
           }
       },
       release: { // compile all less into a single css document for release

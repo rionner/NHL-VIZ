@@ -1,27 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-
     <title><%= title %></title>
     <%- include ./partials/og_head %>
-
   </head>
-  <body>
-
-		<%- include ./partials/og_nav %>
-
-		<article>
-
-			<section class="team <%= cssClass %>">
-					<h1><%= team %></h1>
-					<h2><%= city %></h2>
-			</section>
-
-		</article>
-
-		<%- include ./partials/all_win_loss %>
-		<%- include ./partials/all_goals %>
-		<%- include ./partials/ajax_call %>
-
+  <body class="layout-page-wrap">
+    <%- include ./partials/og_nav %>
+    <main class="layout-content-wrap">
+  		<article>
+  			<section class="team <%= cssClass %>">
+  					<h1><%= team %></h1>
+  					<h2><%= city %></h2>
+  			</section>
+  		</article>
+      <%- include ./partials/all_win_loss %>
+      <%- include ./partials/all_goals %>
+      <%- include ./partials/ajax_call %>
+    </main>
+    <%- include ./partials/footer %>
   </body>
 </html>

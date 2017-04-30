@@ -1,12 +1,19 @@
 <article>
-
 	<h2>Wins v. Losses</h2>
-
 	<form>
-	  <label><input type="radio" name="mode" value="grouped"> Grouped</label>
-	  <label><input type="radio" name="mode" value="stacked" checked> Stacked</label>
+    <input type="radio" name="mode" value="grouped" id="grouped-radio" class="custom-radio"/>
+    <label for="grouped-radio">
+      <span>
+        <span class="ion-checkmark-circled"></span>
+      </span>&nbsp;Grouped
+    </label>
+
+    <input type="radio" name="mode" value="stacked" id="stacked-radio" class="custom-radio"/>
+    <label for="stacked-radio">
+      <span>
+        <span class="ion-checkmark-circled"></span>
+      </span>&nbsp;Stacked
+    </label>
 	</form>
-
 	<div class="<%= team %> win-loss"></div>
-
 </article>

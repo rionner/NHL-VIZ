@@ -1,0 +1,33 @@
+@import "../../variables/app-color";
+// === CUSTOM RADIO BUTTON ===
+// === === === === === === === === === ===
+input[type="radio"] {
+  &.custom-radio {
+    display: none;
+
+    + label>span {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      vertical-align: top;
+      background-color: @white;
+      border-radius: 50%;
+      border: 2px solid @grey-mid;
+      >.ion-checkmark-circled { display: none; }
+    }
+    &:checked + label>span {
+      @include bold-weight;
+      // color: @black;
+      border-color: @black;
+      background-color: @black;
+
+      >.ion-checkmark-circled {
+        display: inline-block;
+        position: relative;
+        top: 1px;
+        left: 3px;
+        color: @white;
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+@import "variables/screen-size";
+@import "variables/spacing";
+@import "mixins/layout";
+// === === === === === === === === === ===
+// === BROWSER RESETS ===
+// === === === === === === === === === ===
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+ // Keep footer at the bottom of the page
+.layout-page-wrap {
+  .Layout-document();
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.layout-content-wrap {
+  flex: 1 0 auto;
+}
+
+nav, main, footer {
+  padding: @base;
+}

@@ -1,0 +1,68 @@
+// === LAYOUT MIXINS ===
+// === === === === === === === === === ===
+
+// === FLEX ===
+// === === === === === === === === === ===
+.Flexbox() {
+  display: flex;
+}
+
+.Flexbox-row-parent() {
+  display: flex;
+  flex-direction: row;
+}
+
+.Flexbox-column-parent() {
+  display: flex;
+  flex-direction: column;
+}
+
+.Flexbox-inline-row-parent() {
+  display: inline-flex;
+  flex-direction: row;
+}
+
+// === BASE ===
+// === === === === === === === === === ===
+.Layout-document() {
+    min-width: @mobile-min;
+    max-width: @desktop-max;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Layout-column-parent() {
+  .Flexbox-column-parent();
+  align-items: center;
+}
+
+.Layout-row-parent() {
+  .Flexbox-row-parent();
+  flex-wrap: wrap;
+}
+
+.Layout-child-1col() {
+  width: 100%;
+  padding: @base auto;
+}
+
+.Layout-child-2col() {
+  width: 100%;
+  padding: @small @tiny;
+  @media screen and (min-width: @tablet-max) { width: 45%; }
+}
+
+.Layout-child-3col() {
+  width: 100%;
+  padding: @small @tiny;
+  @media screen and (min-width: @mobile-max) { width: 40%; }
+  @media screen and (min-width: @tablet-max) { width: 30%; }
+}
+
+.Layout-child-4col() {
+  width: 100%;
+  padding: @small @tiny;
+  @media screen and (min-width: @tablet-min) { width: 30%; }
+  @media screen and (min-width: @tablet-max) { width: 20%; }
+}
+

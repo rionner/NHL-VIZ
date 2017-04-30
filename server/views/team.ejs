@@ -4,23 +4,22 @@
     <title><%= title %></title>
     <%- include ./partials/head %>
   </head>
-
-  <body>
-
+  <body class="layout-page-wrap">
 		<%- include ./partials/nav %>
-
-		<article>
-
-			<section class="team">
-					<h1><%= team %></h1>
-
-			</section>
-
-		</article>
-
-		<%- include ./partials/all_win_loss %>
-		<%- include ./partials/all_goals %>
-		<%- include ./partials/ajax_call %>
-
+    <main class="layout-content-wrap">
+  		<h1 class="team"><%= team %></h1>
+      <section class="data">
+        <article>
+          <%- include ./partials/all_win_loss %>
+        </article>
+        <article>
+          <%- include ./partials/all_goals %>
+        </article>
+        <article>
+          <%- include ./partials/ajax_call %>
+        </article>
+      </section>
+    </main>
+    <%- include ./partials/footer %>
   </body>
 </html>
