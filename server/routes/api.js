@@ -1,6 +1,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var Team = require('../models/Team');
+var Color = require('../models/Color');
 var router = express.Router();
 
 
@@ -27,7 +28,7 @@ router.param('year', function(req, res, next, year) {
   console.log('+++++ Validating Year Parameter +++++');
   // Validate that the year is numeric and within range
   var year = req.params.year;
-  if (year > 1996 && year < 2016) {
+  if ( 1996 < year < 2016) {
     req.year = year;
   } else {
     res.json({ message: "Selected year is not in range. There is no data available for that season." });
@@ -64,7 +65,7 @@ router.route('/')
 
 
 // ===== ===== ===== ===== ======
-// PUT & DELETE METHODS NEED WORK
+// PUT & DELETE METHODS // NEED WORK
 // ===== ===== ===== ===== ======
 // ===== ===== ===== ===== ======
 // Admin CRUD
@@ -114,36 +115,47 @@ router.route('/admin/:id')
 router.route('/:team')
   .get(function(req, res, next) {
     var team = req.team;
+
     Team.find().where('team', team).exec(function(err, team) {
       if (err) {
         console.log(err);
       } else {
-        res.send(team);
+        var teamData = team;
       }
+      Color.find().where('team', team).exec(function(err, colors) {
+        var teamData = team;
+        if (err) {
+          console.log(err);
+        } else if(teamData) {
+          teamData.colors = colors;
+          res.send(teamData);
+        }
+      });
     });
   });
 
-// Get by team name and year
-router.route('/:team/:year')
+// Get by team name, and regular_season boolean
+router.route('/:team/:regular_season')
   .get(function(req, res, next) {
     var team = req.team;
-    var year = req.year;
-    Team.find().where({ 'team': team, 'year1': year }).exec(function(err, team) {
-      if (err) {
-        console.log(err);
-      } else {
-        res.send(team);
-      }
+    var regular_season = req.regular_season;
+    Team.find().where({ 'team': team, 'regular_season': regular_season }).exec(function(err, team) {
+        if (err) {
+          console.log(err);
+        } else {
+          res.send(team);
+        }
     });
   });
+
 
 // Get by team name, year, and regular_season boolean
-router.route('/:team/:year/:regular_season')
+router.route('/:team/:regular_season/:year')
   .get(function(req, res, next) {
     var team = req.team;
-    var year = req.year;
     var regular_season = req.regular_season;
-    Team.find().where({ 'team': team, 'year1': year, 'regular_season': regular_season }).exec(function(err, team) {
+    var year = req.year;
+    Team.find().where({ 'team': team, 'regular_season': regular_season, 'year1': year }).exec(function(err, team) {
         if (err) {
           console.log(err);
         } else {
