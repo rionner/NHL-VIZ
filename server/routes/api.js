@@ -117,17 +117,20 @@ router.route('/:team')
     var team = req.team;
 
     Team.find().where('team', team).exec(function(err, team) {
+      var teamData = [];
+      var teamStats = [];
       if (err) {
         console.log(err);
       } else {
-        var teamData = team;
+        teamStats.push(team);
+        teamData.push(teamStats);
       }
+    }).then(teamData => {
       Color.find().where('team', team).exec(function(err, colors) {
-        var teamData = team;
         if (err) {
           console.log(err);
-        } else if(teamData) {
-          teamData.colors = colors;
+        } else if(colors) {
+          teamData.push({ teamColors: colors });
           res.send(teamData);
         }
       });

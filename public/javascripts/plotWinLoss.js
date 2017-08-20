@@ -1,60 +1,74 @@
-function plotWinLoss(data) {
-  console.log('plot win & loss javascripts');
-  console.log(data);
+function plotWinLoss(data, colors, years) {
+  var teamData = data;
+  var primaryColor = colors['primary-rgb'];
+  var secondaryColor = colors['secondary-rgb'];
+  // var tertiaryColor = colors['tertiary-rgb'];
+  // var quarternaryColor = colors['quarternary-rgb'];
+  var years = years;
 
-  var ctx = $("#win-loss-chart");
-  ctx.width('90%');
-  ctx.height('600px');
-
-  var years = [];
   var regularSeasonWins = [];
   var regularSeasonLosses = [];
   var playoffWins = [];
   var playoffLosses = [];
 
-  for (var i = 0, length = data.length; i < length; i++) {
-    if (data[i].regular_season) {
-      years.push(data[i].years);
-      regularSeasonWins.push(data[i].wins);
-      regularSeasonLosses.push(data[i].losses);
+  var winLossCanvas = $('#win-loss-chart');
+
+  for (var i = 0; i < teamData.length; i++) {
+    if (teamData[i].regular_season) {
+      regularSeasonWins.push(teamData[i].wins);
+      regularSeasonLosses.push(teamData[i].losses);
     } else {
-      playoffWins.push(data[i].wins);
-      playoffLosses.push(data[i].losses);
+      playoffWins.push(teamData[i].wins);
+      playoffLosses.push(teamData[i].losses);
     }
   }
 
-  var myChart = new Chart(ctx, {
+  var regularDataset = [
+    {
+      label: 'Regular Season Wins',
+      data: regularSeasonWins,
+      backgroundColor: ['rgba(' + primaryColor + ',0.1)'],
+      borderColor: ['rgba(' + primaryColor + ',1)'],
+      borderWidth: 2,
+      steppedLine: true,
+      pointStyle: 'rect'
+    },
+    {
+      label: 'Regular Season Losses',
+      data: regularSeasonLosses,
+      backgroundColor: ['rgba(' + secondaryColor + ',0.1)'],
+      borderColor: ['rgba(' + secondaryColor + ',1)'],
+      borderWidth: 2,
+      steppedLine: true,
+      pointStyle: 'rect'
+    }
+  ];
+  var playoffDataset = [
+    {
+      label: 'Playoff Season Wins',
+      data: playoffWins,
+      backgroundColor: ['rgba(' + primaryColor + ',0.1)'],
+      borderColor: ['rgba(' + primaryColor + ',1)'],
+      borderWidth: 2,
+      steppedLine: true,
+      pointStyle: 'rect'
+    },
+    {
+      label: 'Playoff Season Losses',
+      data: playoffLosses,
+      backgroundColor: ['rgba(' + secondaryColor + ',0.1)'],
+      borderColor: ['rgba(' + secondaryColor + ',1)'],
+      borderWidth: 2,
+      steppedLine: true,
+      pointStyle: 'rect'
+    }
+  ];
+
+  var winLossChart = new Chart(winLossCanvas, {
     type: 'line',
     data: {
       labels: years,
-      datasets: [{
-        label: 'Regular Season Wins',
-        data: regularSeasonWins,
-        backgroundColor: ['rgba(255, 99, 132, 0.2)'],
-        borderColor: ['rgba(255,99,132,1)'],
-        borderWidth: 2
-      },
-      {
-        label: 'Regular Season Losses',
-        data: regularSeasonLosses,
-        backgroundColor: ['#666'],
-        borderColor: ['#000'],
-        borderWidth: 2
-      },
-      {
-        label: 'Playoff Season Wins',
-        data: playoffWins,
-        backgroundColor: ['#666'],
-        borderColor: ['#000'],
-        borderWidth: 2
-      },
-      {
-        label: 'Playoff Season Losses',
-        data: playoffLosses,
-        backgroundColor: ['#666'],
-        borderColor: ['#000'],
-        borderWidth: 2
-      }]
+      datasets: regularDataset
     },
     options: {
       scales: {
@@ -64,9 +78,9 @@ function plotWinLoss(data) {
           }
         }]
       },
-      options: {}
     }
   });
+
 
 };
 

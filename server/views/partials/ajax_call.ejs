@@ -6,9 +6,14 @@
       method: 'get',
       url: '/api/<%= team %>',
       dataType: 'json',
-      success: function(data){
-        plotWinLoss(data);
-        plotGoals(data);
+      success: function(data, colors){
+        var years = [];
+        var colors = data[data.length - 1].teamColors[0];
+        for (var i = 0; i < data.length; i++) {
+          if (data[i].regular_season) years.push(data[i].years);
+        }
+        plotWinLoss(data, colors, years);
+        // plotGoals(data, years);
       }
     });
   });
