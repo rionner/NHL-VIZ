@@ -2,8 +2,6 @@ function plotWinLoss(data, colors, years) {
   var teamData = data;
   var primaryColor = colors['primary-rgb'];
   var secondaryColor = colors['secondary-rgb'];
-  // var tertiaryColor = colors['tertiary-rgb'];
-  // var quarternaryColor = colors['quarternary-rgb'];
   var years = years;
 
   var regularSeasonWins = [];
@@ -31,7 +29,7 @@ function plotWinLoss(data, colors, years) {
       borderColor: 'rgba(' + primaryColor + ',1)',
       borderWidth: 2,
       steppedLine: true,
-      pointRadius: 5,
+      pointRadius: 7,
       pointStyle: 'rect'
     },
     {
@@ -41,7 +39,7 @@ function plotWinLoss(data, colors, years) {
       borderColor: 'rgba(' + secondaryColor + ',1)',
       borderWidth: 2,
       steppedLine: true,
-      pointRadius: 5,
+      pointRadius: 7,
       pointStyle: 'crossRot'
     }
   ];
@@ -53,7 +51,7 @@ function plotWinLoss(data, colors, years) {
       borderColor: 'rgba(' + primaryColor + ',1)',
       borderWidth: 2,
       steppedLine: true,
-      pointRadius: 5,
+      pointRadius: 7,
       pointStyle: 'rect'
     },
     {
@@ -63,7 +61,7 @@ function plotWinLoss(data, colors, years) {
       borderColor: 'rgba(' + secondaryColor + ',1)',
       borderWidth: 2,
       steppedLine: true,
-      pointRadius: 5,
+      pointRadius: 7,
       pointStyle: 'crossRot'
     }
   ];
@@ -84,7 +82,7 @@ function plotWinLoss(data, colors, years) {
       },
       tooltips: {
         enabled: true,
-        backgroundColor: ['rgba(0,0,0,1)']
+        backgroundColor: 'rgba(0,0,0,1)'
       }
     }
   });

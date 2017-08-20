@@ -24,21 +24,21 @@ function plotGoals(data, colors, years) {
     {
       label: 'Regular Season Goals Scored',
       data: regularGoalsFor,
-      backgroundColor: ['rgba(255,255,255,0)'],
-      borderColor: ['rgba(' + primaryColor + ',1)'],
+      backgroundColor: 'rgba(255,255,255,0)',
+      borderColor: 'rgba(' + primaryColor + ',1)',
       borderWidth: 2,
       steppedLine: true,
-      pointRadius: 5,
+      pointRadius: 7,
       pointStyle: 'rect'
     },
     {
       label: 'Regular Season Goals Allowed',
       data: regularGoalsAgainst,
-      backgroundColor: ['rgba(255,255,255,0)'],
-      borderColor: ['rgba(' + secondaryColor + ',1)'],
+      backgroundColor: 'rgba(255,255,255,0)',
+      borderColor: 'rgba(' + secondaryColor + ',1)',
       borderWidth: 2,
       steppedLine: true,
-      pointRadius: 5,
+      pointRadius: 7,
       pointStyle: 'crossRot'
     }
   ];
@@ -46,21 +46,21 @@ function plotGoals(data, colors, years) {
     {
       label: 'Playoff Season Goals Scored',
       data: playoffGoalsFor,
-      backgroundColor: ['rgba(255,255,255,0)'],
-      borderColor: ['rgba(' + primaryColor + ',1)'],
+      backgroundColor: 'rgba(255,255,255,0)',
+      borderColor: 'rgba(' + primaryColor + ',1)',
       borderWidth: 2,
       steppedLine: true,
-      pointRadius: 5,
+      pointRadius: 7,
       pointStyle: 'rect'
     },
     {
       label: 'Playoff Season Goals Allowed',
       data: playoffGoalsAgainst,
-      backgroundColor: ['rgba(255,255,255,0)'],
-      borderColor: ['rgba(' + secondaryColor + ',1)'],
+      backgroundColor: 'rgba(255,255,255,0)',
+      borderColor: 'rgba(' + secondaryColor + ',1)',
       borderWidth: 2,
       steppedLine: true,
-      pointRadius: 5,
+      pointRadius: 7,
       pointStyle: 'crossRot'
     }
   ];
@@ -81,8 +81,8 @@ function plotGoals(data, colors, years) {
       },
       tooltips: {
         enabled: true,
-        backgroundColor: ['rgba(0,0,0,1)']
+        backgroundColor: 'rgba(0,0,0,1)'
       }
     }
-  })
+  });
 };
