@@ -12,9 +12,10 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/:team', function(req, res, next) {
+  var team = req.params.team.replace(/-/g, ' ');
   var data = {
-    title: req.params.team.toUpperCase(),
-    team: req.params.team
+    title: team.toUpperCase(),
+    team: team
   };
   res.render('team', data);
 });

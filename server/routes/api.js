@@ -19,7 +19,8 @@ router.param('id', function(req, res, next, id) {
 router.param('team', function(req, res, next, team) {
   console.log('+++++ Validating Team Parameter +++++');
   // Validate team name
-  var team = req.params.team.toLowerCase();
+  var team = req.params.team.replace(/-/g, ' ').toLowerCase();
+
   req.team = team;
   next();
 });
