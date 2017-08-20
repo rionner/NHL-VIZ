@@ -27,40 +27,44 @@ function plotWinLoss(data, colors, years) {
     {
       label: 'Regular Season Wins',
       data: regularSeasonWins,
-      backgroundColor: ['rgba(255,255,255,0'],
+      backgroundColor: ['rgba(255,255,255,0)'],
       borderColor: ['rgba(' + primaryColor + ',1)'],
       borderWidth: 2,
       steppedLine: true,
+      pointRadius: 5,
       pointStyle: 'rect'
     },
     {
       label: 'Regular Season Losses',
       data: regularSeasonLosses,
-      backgroundColor: ['rgba(255,255,255,0'],
+      backgroundColor: ['rgba(255,255,255,0)'],
       borderColor: ['rgba(' + secondaryColor + ',1)'],
       borderWidth: 2,
       steppedLine: true,
-      pointStyle: 'rect'
+      pointRadius: 5,
+      pointStyle: 'crossRot'
     }
   ];
   var playoffDataset = [
     {
       label: 'Playoff Season Wins',
       data: playoffWins,
-      backgroundColor: ['rgba(255,255,255,0'],
+      backgroundColor: ['rgba(255,255,255,0)'],
       borderColor: ['rgba(' + primaryColor + ',1)'],
       borderWidth: 2,
       steppedLine: true,
+      pointRadius: 5,
       pointStyle: 'rect'
     },
     {
       label: 'Playoff Season Losses',
       data: playoffLosses,
-      backgroundColor: ['rgba(255,255,255,0'],
+      backgroundColor: ['rgba(255,255,255,0)'],
       borderColor: ['rgba(' + secondaryColor + ',1)'],
       borderWidth: 2,
       steppedLine: true,
-      pointStyle: 'rect'
+      pointRadius: 5,
+      pointStyle: 'crossRot'
     }
   ];
 
@@ -78,6 +82,10 @@ function plotWinLoss(data, colors, years) {
           }
         }]
       },
+      tooltips: {
+        enabled: true,
+        backgroundColor: ['rgba(0,0,0,1)']
+      }
     }
   });
 
