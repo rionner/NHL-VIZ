@@ -81,6 +81,24 @@ function plotWinLoss(data, colors, years) {
     }
   });
 
+  // function toggleSeasonType() {
+  //   var toggle = true;
+  //   winLossChart.data.datasets.forEach(function(dataset) {
+  //       dataset.data.pop();
+  //       toggle = !toggle;
+  //   });
+
+  //   winLossChart.data.datasets.forEach(function(dataset) {
+  //       if (toggle) {
+  //         dataset.push(playoffDataset);
+  //       } else {
+  //         dataset.push(regularDataset);
+  //       }
+  //       toggle = !toggle;
+  //   });
+
+  //   chart.update();
+  // }
 
 };
 
