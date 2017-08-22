@@ -20,7 +20,6 @@ router.param('team', function(req, res, next, team) {
   console.log('+++++ Validating Team Parameter +++++');
   // Validate team name
   var team = req.params.team.replace(/-/g, ' ').toLowerCase();
-
   req.team = team;
   next();
 });
@@ -112,6 +111,53 @@ router.route('/admin/:id')
 // ===== ===== ===== ===== ======
 // Query Routes
 // ===== ===== ===== ===== ======
+// Get data for all Original Six Teams
+router.route('/six/')
+  .get(function(req, res, next) {
+    var originalSix = {
+      blackhawks: [],
+      bruins: [],
+      canadiens: [],
+      mapleLeafs: [],
+      rangers: [],
+      redWings: [],
+      teamColors: []
+    };
+
+    Team.find().where({ '$or': [{ 'team': 'blackhawks'}, { 'team': 'bruins' }, { 'team': 'canadiens' }, { 'team': 'maple leafs' }, { 'team': 'rangers' }, { 'team': 'red wings' }]}).exec(function(err, teams) {
+      if (err) {
+        console.log(err);
+      } else {
+        for (var i = 0; i < teams.length; i++) {
+          if (teams[i].team === 'blackhawks') {
+            originalSix.blackhawks.push(teams[i]);
+          } else if (teams[i].team === 'bruins') {
+            originalSix.bruins.push(teams[i]);
+          } else if (teams[i].team === 'canadiens') {
+            originalSix.canadiens.push(teams[i]);
+          } else if (teams[i].team === 'maple leafs') {
+            originalSix.mapleLeafs.push(teams[i]);
+          } else if (teams[i].team === 'rangers') {
+            originalSix.rangers.push(teams[i]);
+          } else if (teams[i].team === 'red wings') {
+            originalSix.redWings.push(teams[i]);
+          }
+        }
+      }
+    }).then(function() {
+      Color.find().where({ '$or': [{ 'team': 'blackhawks'}, { 'team': 'bruins' }, { 'team': 'canadiens' }, { 'team': 'maple-leafs' }, { 'team': 'rangers' }, { 'team': 'red-wings' }]}).exec(function(err, colors) {
+          if (err) {
+            console.log(err);
+          } else {
+            for (var i = 0; i < colors.length; i++) {
+                originalSix.teamColors.push(colors[i]);
+            }
+            res.send(originalSix);
+          }
+        });
+      });
+  });
+
 // Get by team name
 router.route('/:team')
   .get(function(req, res, next) {
@@ -126,11 +172,11 @@ router.route('/:team')
         teamStats.push(team);
         teamData.push(teamStats);
       }
-    }).then(teamData => {
+    }).then(function(teamData) {
       Color.find().where('team', team).exec(function(err, colors) {
         if (err) {
           console.log(err);
-        } else if(colors) {
+        } else {
           teamData.push({ teamColors: colors });
           res.send(teamData);
         }
@@ -152,7 +198,6 @@ router.route('/:team/:regular_season')
     });
   });
 
-
 // Get by team name, year, and regular_season boolean
 router.route('/:team/:regular_season/:year')
   .get(function(req, res, next) {
@@ -167,6 +212,7 @@ router.route('/:team/:regular_season/:year')
         }
     });
   });
+
 
 
 // ===== ===== ===== ===== ======

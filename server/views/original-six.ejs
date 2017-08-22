@@ -15,7 +15,38 @@
         <a class="h2 team nyr" href="/original-six/rangers">Rangers</a>
         <a class="h2 team det" href="/original-six/redwings">Red Wings</a>
       </article>
+      <article class="blackhawks">
+        <h2></h2>
+      </article>
+      <article class="bruins">
+        <h2></h2>
+      </article>
+      <article class="canadiens">
+        <h2></h2>
+      </article>
+      <article class="mapleleafs">
+        <h2></h2>
+      </article>
+      <article class="rangers">
+        <h2></h2>
+      </article>
+      <article class="redwings">
+        <h2></h2>
+      </article>
     </main>
     <%- include ./partials/footer %>
   </body>
+  <script>
+    $(document).ready(function(){
+      $.ajax({
+        method: 'get',
+        url: '/api/six %>',
+        dataType: 'json',
+        success: function(data){
+          console.log(data);
+        }
+      });
+    });
+  </script>
 </html>
+
